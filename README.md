@@ -1,7 +1,7 @@
 # Coordinate-descent for ReLU-NMD
 
 
-This MATLAB codes provides algorithms to solve the following Nonlinear Matrix Decomposition (NMD) problems with the ReLU function:  
+This MATLAB,Julia and C++ codes provides algorithms to solve the following Nonlinear Matrix Decomposition (NMD) problems with the ReLU function:  
 Given a nonnegative matrix X in R^{m x n} and an integer r, solve  
 
         min_{W in R^{m x r},H in R^{r x n}} ||X - max(0,W*H)||_F^2.  
@@ -17,15 +17,18 @@ The algorithms implemented are the following:
  
 You can run the file RunMe.me to have a run a simple example comparing A-NMD and 3B-NMD and CD on a synthetic data set. 
 
-All experiments from our paper can be found in the folder "numerical experiments". 
+All experiments in MATLAB comparing the previous methods and coordinate-descent from our paper can be found in the folder "Numerical Experiments". 
 
-See our paper [S+24] for more details. 
+See our paper [S+24] for more details. The pdf of our paper is available on gitlab.  
 
 
 ## References 
 [S22] L.K. Saul, *A nonlinear matrix decomposition for mining the zeros of sparse data*, SIAM Journal on Mathematics of Data Science 4(2), 431-463, 2022.  
+
 [S23] L.K. Saul, *A geometrical connection between sparse and low-rank matrices and its application to manifold learning*, Transactions on Machine Learning Research, 2023.  
+
 [S+23] G. Seraghiti, A. Awari, A. Vandaele, M. Porcelli, and N. Gillis, *Accelerated Algorithms for Nonlinear Matrix Decomposition with the ReLU function*, arXiv Preprint [arXiv:2305.08687](https://arxiv.org/abs/2305.08687), 2023. 
-[S+24] A. Awari, H. Nguyen, S. Wertz, A. Vandaele, N. Gillis, *Coordinate-descent Algorithm for Nonlinear Matrix Decomposition with the ReLU function*.  
+
+[S+24] A. Awari, H. Nguyen, S. Wertz, A. Vandaele, N. Gillis, *Coordinate-descent Algorithm for Nonlinear Matrix Decomposition with the ReLU function*, 2024.  
 
 

@@ -17,6 +17,10 @@
 #  err      : vector containing evolution of relative error along
 #            iterations ||X-max(0,WH)||_F / || X ||_F
 
+# We have used Visual Studio to compile the Julia codes. To activate multi-threading,
+# Go to Settings and search threads. When you see Numthreads, enter it and edit:
+#   "julia.NumThreads": 8. 8 is the maximum number of threads you can use. 
+
 using LinearAlgebra
 
 function alternatescheme(X,W,H,maxiter)

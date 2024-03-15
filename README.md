@@ -23,11 +23,11 @@ See our paper [S+24] for more details. The pdf of our paper is available on gitl
 
 
 ## References 
-[S22] L.K. Saul, *A nonlinear matrix decomposition for mining the zeros of sparse data*, SIAM Journal on Mathematics of Data Science 4(2), 431-463, 2022.  
+[S22] L.K. Saul, *A nonlinear matrix decomposition for mining the zeros of sparse data*, SIAM Journal on Mathematics of Data Science 4(2), 431-463, 2022.  https://cseweb.ucsd.edu/~saul/papers/preprints/simods22_preprint.pdf 
 
-[S23] L.K. Saul, *A geometrical connection between sparse and low-rank matrices and its application to manifold learning*, Transactions on Machine Learning Research, 2023.  
+[S23] L.K. Saul, *A geometrical connection between sparse and low-rank matrices and its application to manifold learning*, Transactions on Machine Learning Research, 2023. https://openreview.net/forum?id=p8gncJbMit 
 
-[S+23] G. Seraghiti, A. Awari, A. Vandaele, M. Porcelli, and N. Gillis, *Accelerated Algorithms for Nonlinear Matrix Decomposition with the ReLU function*, arXiv Preprint [arXiv:2305.08687](https://arxiv.org/abs/2305.08687), 2023. 
+[S+23] G. Seraghiti, A. Awari, A. Vandaele, M. Porcelli, and N. Gillis, *Accelerated Algorithms for Nonlinear Matrix Decomposition with the ReLU function*, IEEE 33rd International Workshop on Machine Learning for Signal Processing (MLSP), arXiv Preprint [arXiv:2305.08687](https://arxiv.org/abs/2305.08687), 2023. 
 
 [S+24] A. Awari, H. Nguyen, S. Wertz, A. Vandaele, N. Gillis, *Coordinate-descent Algorithm for Nonlinear Matrix Decomposition with the ReLU function*, 2024.  
 

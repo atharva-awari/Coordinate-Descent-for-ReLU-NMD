@@ -35,7 +35,6 @@ function [W,H,W_stop,H_stop,err,iter] = alternatescheme(X,W,H,param)
 % with the ReLU function'', Atharva Awari, Harrison Nguyen, Samuel Wertz, 
 % Arnaud Vandaeleand Nicolas Gillis, 2024. 
 
-
 [m,n]=size(X);
 if nargin < 4
     param = [];
@@ -56,7 +55,6 @@ if ~isfield(param,'stop')
     param.stop = param.maxit/2;
 end
 
-
 cpu0=tic;
 compute_obj=0;
 W_stop = W;
@@ -74,7 +72,6 @@ runtime=toc(cpu0)-compute_obj;
 savetime(iter)=runtime;
 
 err = [norm(X-optscal*Z,'fro')/normX];
-    %for iter = 1 : maxiter
     while iter < param.maxit && runtime<param.time
         H   = updateH(X,W,H);
         W   = updateH(X',H',W')';
@@ -95,20 +92,14 @@ err = [norm(X-optscal*Z,'fro')/normX];
   
     savetime(iter)=runtime;
     end
-    %iter
-%err = err/norm(X,'fro');
-
 end
-
 
 function H = updateH(X,W,H)
     [r,n] = size(H);
     WH    = W*H;
     
-    %%%%En C
     parfor j = 1:n
         c = X(:,j);
-        %Whtj = W*H(:,j);
         for i = 1:r
             a       = W(:,i);
             b       = WH(:,j)-W(:,i)*H(i,j);

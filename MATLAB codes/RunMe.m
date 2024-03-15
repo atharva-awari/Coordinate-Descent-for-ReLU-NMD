@@ -3,12 +3,11 @@
 clear all;
 clc;
 
-  m = 500;n=500; r=32;
+  m = 50;n=50; r=8;
    
    %Generate a synthetic matrix
-   Wt = randn(m,r);
-   Ht = randn(r,n);
-   X = max(0,Wt*Ht);
+   Z = randn(m,n);
+   X = max(0,Z);
       
     [U,S,V] = svds(X,r);
     
@@ -19,7 +18,7 @@ clc;
     param.W0 = W0;
     param.H0 = H0;
     param.time=1000;
-    param.maxit=1000;
+    param.maxit=200;
     param.tol = 1e-4;
     param.tolerr=1e-4;
     
@@ -38,12 +37,12 @@ clc;
     
     figure; 
     set(0, 'DefaultAxesFontSize', 25);
-    set(0, 'DefaultLineLineWidth', 2);
+    set(0, 'DefaultLineLineWidth', 3);
     
 
     semilogy(err_cd); hold on;
-    semilogy(err_anmd);
-    semilogy(err_3B);
+    semilogy(err_anmd,':');
+    semilogy(err_3B,'-.');
     
     
     legend('CD', 'A-NMD', '3B');

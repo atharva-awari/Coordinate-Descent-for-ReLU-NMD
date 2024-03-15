@@ -1,7 +1,7 @@
 using LinearAlgebra
 using PlotlyLight
 using MAT
-# using JLD2 #@save ----.jld2 @load ---.jld2
+
 
 function test()
     m = 50
@@ -9,7 +9,7 @@ function test()
     r = 5
     maxiter = 100
 
-    #for i = 1:5
+    
         W = randn(m,r)
         H = randn(r,n)
 
@@ -35,30 +35,14 @@ function test()
 
         time = @elapsed begin (W,H,err_julia) = alternatescheme(X,W,H,maxiter) end
         println(" - error = ",err_julia[end]," - time = ",time)
-        #@profview alternatescheme(X,W,H,maxiter)
+        
 
         layout = Config(yaxis=Config(type="log"))
         Plot(y=err_julia, layout=layout)
 
-        #Checking error from MATLAB and Julia are same or not
+       
 
-        #mat_data = matread("err1_sparse.mat")
-        #error_matlab = mat_data["err"]'
-
-
-        #tolerance = 1e-5
-
-        # Compare arrays element-wise
-        #result = isapprox(error_matlab, err_julia; atol=tolerance)
-
-        # Display the result
-        #if result
-        #   println("Arrays are approximately equal within 5 digits of accuracy.")
-        #else
-        #   println("Arrays are not approximately equal within 5 digits of accuracy.")
-        #end
-
-    #end
+    
 end
 
 test()

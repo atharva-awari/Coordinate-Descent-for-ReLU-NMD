@@ -3,8 +3,7 @@ function xopt=findmin(a,b,c)
     % xopt = argmin_x ||c-max(0,b+ax)||_2^2
 
     pos  = abs(a) > 1e-16;
-    %zer  = abs(a) <= 1e-16;
-    %cste = sum((c(zer)-max(0,b(zer))).^2); %constant in the objective but we dont care
+
     a = a(pos);
     b = b(pos);
     c = c(pos);

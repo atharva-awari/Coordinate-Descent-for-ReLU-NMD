@@ -1,10 +1,12 @@
+%% Experiment on 28x28 greyscale images(MNIST)
+
 clear all;
 clc;
 %Number of images per digit
-images=5;
+images=20;
 
 %Desired rank of factorization
-r = 10;
+r = 20;
 
     %%MNIST 
     Y=load("mnist_all.mat");
@@ -15,6 +17,7 @@ r = 10;
       
     [U,S,V] = svds(X,r);
     
+    % Parameter Setting for CD and A-NMD
     W0 = U;
     H0 = S*V';
     param.Theta0=W0*H0;
@@ -25,23 +28,24 @@ r = 10;
     param.stop=500;
     param.tol = 1e-16;
     
+%%  CD for 1000 iterations
     tic;
     [Wc,Hc,Wc_stop,Hc_stop,err_cd,iter] = alternatescheme(X,W0,H0,param); 
     time_cd=toc;
-%% 
+%%  A-NMD for 1000 iterations
 
     [Theta_anmd,Theta_anmd_500,err_anmd,i_anmd,time_anmd]=A_NMD(X,r,param);
     
     [Theta_3B,err_3B,i_3B,time_3B]=NMD_3B(X,r,param);
 
-    % A-NMD initialized by CD after 500 iterations
+ %% A-NMD initialized by CD after 500 iterations
     param.Theta0=Wc_stop*Hc_stop;
     param.maxit=500;
     param.time=50;
 
     [Theta_cd_anmd,Theta_cd_anmd_500,err_cd_anmd,i_cd_anmd,time_cd_anmd]=A_NMD(X,r,param);
 
-    % CD initialized by A-NMD after 500 iterations
+ %% CD initialized by A-NMD after 500 iterations
     [U_cd,S_cd,V_cd] = svds(Theta_anmd_500,r);
     W0 = U_cd;
     H0 = S_cd*V_cd';
@@ -53,7 +57,7 @@ r = 10;
 
     fprintf('\ntime_CD = %f, iterations_CD = %d, time_ANMD = %f, iterations_ANMD = %d, time_3B = %f, iterations_3B = %d \n', time_cd,iter,time_anmd(end),i_anmd(end),time_3B(end), i_3B(end));
 
-    %% 
+    %% Plotting the graph
     
     figure; 
     set(0, 'DefaultAxesFontSize', 25);

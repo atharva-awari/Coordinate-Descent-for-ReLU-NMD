@@ -30,6 +30,7 @@ function [W,H,W_stop,H_stop,err,iter] = alternatescheme(X,W,H,param)
 
 % Note: In order to use multi-threaded version of the code, you need the 
 %       Parallel Computing Toolbox of MATLAB
+
 % See the paper ''Coordinate Descent Algorithm Nonlinear Matrix Decomposition 
 % with the ReLU function'', Atharva Awari, Harrison Nguyen, Samuel Wertz, 
 % Arnaud Vandaeleand Nicolas Gillis, 2024. 
@@ -52,7 +53,7 @@ if ~isfield(param,'time')
 end
 
 if ~isfield(param,'stop')
-    param.stop = 500;
+    param.stop = param.maxit/2;
 end
 
 

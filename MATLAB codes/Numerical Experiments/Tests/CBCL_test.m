@@ -1,3 +1,5 @@
+%% Experiment on sparse images obtained through NMF
+
 clear all
 close all
 clc;
@@ -57,14 +59,14 @@ err_ANMD_nmf=norm(X-U_ANMD*V_ANMD,'fro')/norm(X,'fro'); %NMF error
 [P,Q,R] = svds(U_ANMD_neg_stop, r);
 W0 = P;
 H0 = Q*R';
-param.maxit=5000;
+param.maxit=50;
 
 [W_anmd_cd,H_anmd_cd,Wc_anmd_cd_stop,Hc_anmd_cd_stop,err_anmd_cd,iter_anmd_cd] = alternatescheme(U,W0,H0,param);
 
 %% A-NMD initialized by CD after 5000 iterations
 
     param.Theta0=Wc_stop*Hc_stop;
-    param.maxit=5000;
+    param.maxit=50;
     param.time=50;
 
     [U_ANMD_neg_cd_anmd,U_ANMD_neg_stop_cd_anmd, err_acc_and_cd_anmd,it_acc_and_cd_anmd,t_and_acc_cd_anmd]=A_NMD(U,r,param);
